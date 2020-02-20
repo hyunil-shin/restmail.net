@@ -145,8 +145,8 @@ const server = smtp.createServer(config.email.host, (req) => {
               return logError(err);
             }
 
-            if (replies > 10) {
-              db.ltrim(user, -10, -1, function(err) {
+            if (replies > 50) {
+              db.ltrim(user, -50, -1, function(err) {
                 if (err) {
                   return logError(err);
                 }

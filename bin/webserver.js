@@ -65,7 +65,7 @@ app.get('/html/:user', function(req, res) {
 
   req.params.user = canonicalize(req.params.user);
 
-  db.lrange(req.params.user, -10, -1, function(err, replies) { 
+  db.lrange(req.params.user, -50, -1, function(err, replies) { 
     if (err) {
       console.log(new Date().toISOString() + ": ERROR", err);
       res.status(500).end();
@@ -143,7 +143,7 @@ app.get('/mail/:user', function(req, res) {
     return res.json([]);
   }
 
-  db.lrange(req.params.user, -10, -1, function(err, replies) {
+  db.lrange(req.params.user, -50, -1, function(err, replies) {
     if (err) {
       console.log(new Date().toISOString() + ': ERROR', err);
       res.status(500).end();
